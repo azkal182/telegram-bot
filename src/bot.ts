@@ -8,6 +8,10 @@ import type { Variant as TextEffectVariant } from "./textEffects";
 // Create a bot using the Telegram token
 const bot = new Bot(process.env.TELEGRAM_TOKEN || "");
 
+bot.on('message', async (ctx)=> {
+    await ctx.reply(`Tulis artikel yang benar-benar unik dan asli di Indonesia tentang kata kunci "${ctx.message.text}".  Itu harus dapat dibaca manusia dan berisi judul kreatif (H1), judul dan deskripsi meta SEO, pengantar, judul (dalam H2), subjudul (H3, H4, H5, dan H6), poin-poin atau daftar bernomor (jika diperlukan)  , FAQ, dan kesimpulan.  Pastikan panjang artikel minimal 1600 kata dan bebas dari plagiarisme.  Gunakan kata kunci ${ctx.message.text} 5-10 kali di seluruh artikel, termasuk di heading, buat dengan format html tanpa tag head dan body`)
+})
+
 // Handle the /yo command to greet the user
 bot.command("yo", (ctx) => ctx.reply(`Yo ${ctx.from?.username}`));
 
